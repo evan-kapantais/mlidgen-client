@@ -26,8 +26,10 @@ function App() {
 
 	const [paste, setPaste] = useState(false);
 	const [spacesRpl, setSpacesRpl] = useState('underscores');
-	const [newId, setNewId] = useState(0);
+	const [hasLimit, setHasLimit] = useState(false);
+	const [limit, setLimit] = useState(20);
 	const [prefix, setPrefix] = useState('_mc_attack_');
+	const [newId, setNewId] = useState(0);
 
 	// Show the container once the page loads
 	useEffect(() => {
@@ -44,15 +46,19 @@ function App() {
 
 		attacksService
 			.getAll()
-			.then((attacks) => setAttacks([...attacks.reverse()]))
+			.then((attacks) => {
+				setAttacks([...attacks]);
+			})
 			.catch((error) => console.log(error));
 	}, []);
 
 	// Get / Set local settings
 	useEffect(() => {
-		setPaste(getLocalItem('mlidgen-setting-hover'));
+		setPaste(getLocalItem('mlidgen-setting-hover') || false);
 		setSpacesRpl(getLocalItem('mlidgen-setting-replace') || 'underscores');
 		setPrefix(getLocalItem('mlidgen-setting-prefix') || '_mc_attack_');
+		setLimit(getLocalItem('mlidgen-setting-attacks-num') || 20);
+		setHasLimit(getLocalItem('mlidgen-setting-has-limit') || false);
 	}, []);
 
 	const getLocalItem = (key) => {
@@ -155,6 +161,10 @@ function App() {
 		resetId,
 		prefix,
 		setPrefix,
+		hasLimit,
+		setHasLimit,
+		limit,
+		setLimit,
 	};
 
 	const formProps = {

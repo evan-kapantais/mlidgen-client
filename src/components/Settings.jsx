@@ -12,6 +12,10 @@ const Settings = (props) => {
 		toggleSettings,
 		prefix,
 		setPrefix,
+		hasLimit,
+		setHasLimit,
+		limit,
+		setLimit,
 	} = props;
 
 	const handleSettingChange = (e) => {
@@ -22,12 +26,18 @@ const Settings = (props) => {
 	const storeLocalSetting = (target) => {
 		const localSettingName = `mlidgen-setting-${target.name}`;
 
-		if (target.name !== 'reset-id') {
-			localStorage.setItem(localSettingName, JSON.stringify(target.value));
-		}
-
-		if (target.name === 'hover') {
-			localStorage.setItem(localSettingName, target.checked);
+		switch (target.name) {
+			case 'reset-id':
+				return localStorage.setItem(
+					localSettingName,
+					JSON.stringify(target.value)
+				);
+			case 'hover':
+			case 'has-limit':
+				return localStorage.setItem(localSettingName, target.checked);
+			case 'limit':
+			default:
+				return localStorage.setItem(localSettingName, target.value);
 		}
 	};
 
@@ -69,7 +79,6 @@ const Settings = (props) => {
 						name='hover'
 						id='hover'
 						checked={paste}
-						value={paste}
 						onChange={(e) => setPaste(!paste)}
 					/>
 				</div>
@@ -86,19 +95,30 @@ const Settings = (props) => {
 					</select>
 				</div>
 				<div className='setting'>
-					<label htmlFor='attacks-num'>Number of attacks to show</label>
-					<select
-						name='attacks-num'
-						id='attacks-num'
-						value={spacesRpl}
-						onChange={(e) => setSpacesRpl(e.target.value)}
-					>
-						<option value='all'>all</option>
-						<option value='5'>5</option>
-						<option value='10'>10</option>
-						<option value='20'>20</option>
-					</select>
+					<label htmlFor='has-limit'>Limit displayed attacks</label>
+					<input
+						type='checkbox'
+						name='has-limit'
+						id='has-limit'
+						checked={hasLimit}
+						onChange={(e) => setHasLimit(!hasLimit)}
+					/>
 				</div>
+				{hasLimit && (
+					<div className='setting'>
+						<label htmlFor='limit'>Number of attacks to show</label>
+						<select
+							name='limit'
+							id='limit'
+							value={limit}
+							onChange={(e) => setLimit(e.target.value)}
+						>
+							<option value='5'>5</option>
+							<option value='10'>10</option>
+							<option value='20'>20</option>
+						</select>
+					</div>
+				)}
 				<div className='setting' id='reset-setting'>
 					<label htmlFor='reset-id'>Reset current Id to</label>
 					<input

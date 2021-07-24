@@ -285,8 +285,9 @@ select,
 }
 
 select,
-input#reset-id {
-  width: 120px;
+input#reset-id,
+input#prefix {
+  width: 130px;
 }
 
 .input-container {
