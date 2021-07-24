@@ -57,7 +57,7 @@ function App() {
 		setPaste(getLocalItem('mlidgen-setting-hover') || false);
 		setSpacesRpl(getLocalItem('mlidgen-setting-replace') || 'underscores');
 		setPrefix(getLocalItem('mlidgen-setting-prefix') || '_mc_attack_');
-		setLimit(getLocalItem('mlidgen-setting-attacks-num') || 20);
+		setLimit(getLocalItem('mlidgen-setting-limit') || 20);
 		setHasLimit(getLocalItem('mlidgen-setting-has-limit') || false);
 	}, []);
 
@@ -193,7 +193,11 @@ function App() {
 						) : (
 							<Form {...formProps} />
 						)}
-						<AttacksList copy={copy} attacks={attacks} deleteAll={deleteAll} />
+						<AttacksList
+							copy={copy}
+							attacks={hasLimit ? attacks.slice(0, limit) : attacks}
+							deleteAll={deleteAll}
+						/>
 					</main>
 				</section>
 				<footer>

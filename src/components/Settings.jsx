@@ -28,10 +28,7 @@ const Settings = (props) => {
 
 		switch (target.name) {
 			case 'reset-id':
-				return localStorage.setItem(
-					localSettingName,
-					JSON.stringify(target.value)
-				);
+				return;
 			case 'hover':
 			case 'has-limit':
 				return localStorage.setItem(localSettingName, target.checked);
