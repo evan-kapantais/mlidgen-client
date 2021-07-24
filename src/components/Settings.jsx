@@ -91,6 +91,16 @@ const Settings = (props) => {
 						<option value='dashes'>dashes</option>
 					</select>
 				</div>
+				<div className='setting' id='prefix'>
+					<label htmlFor='prefix'>Change prefix to</label>
+					<input
+						type='text'
+						id='prefix'
+						name='prefix'
+						value={prefix}
+						onChange={(e) => formatAndSetPrefix(e)}
+					/>
+				</div>
 				<div className='setting'>
 					<label htmlFor='has-limit'>Limit displayed attacks</label>
 					<input
@@ -124,16 +134,6 @@ const Settings = (props) => {
 						name='reset-id'
 						value={newId}
 						onChange={resetId}
-					/>
-				</div>
-				<div className='setting' id='prefix'>
-					<label htmlFor='prefix'>Change prefix to</label>
-					<input
-						type='text'
-						id='prefix'
-						name='prefix'
-						value={prefix}
-						onChange={(e) => formatAndSetPrefix(e)}
 					/>
 				</div>
 			</form>
