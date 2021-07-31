@@ -33,8 +33,12 @@ const Settings = (props) => {
 			case 'has-limit':
 				return localStorage.setItem(localSettingName, target.checked);
 			case 'limit':
-			default:
 				return localStorage.setItem(localSettingName, target.value);
+			default:
+				return localStorage.setItem(
+					localSettingName,
+					JSON.stringify(target.value)
+				);
 		}
 	};
 

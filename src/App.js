@@ -9,12 +9,8 @@ import settingsIcon from './icons/settings.svg';
 import attacksService from './services/attacks';
 import baseService from './services/base';
 
-//TODO: add the option to change prefix
 //TODO: display error when unable to fetch attacks from server
-//TODO: add option to keep amount of attacks
 //TODO: sync form message with server response
-//TODO: id changes history setting
-//TODO: sort attack server-side
 //TODO: input hook
 
 function App() {
@@ -57,6 +53,7 @@ function App() {
 		setPaste(getLocalItem('mlidgen-setting-hover') || false);
 		setSpacesRpl(getLocalItem('mlidgen-setting-replace') || 'underscores');
 		setPrefix(getLocalItem('mlidgen-setting-prefix') || '_mc_attack_');
+		setHasLimit(getLocalItem('mlidgen-setting-has-limit' || false));
 		setLimit(getLocalItem('mlidgen-setting-limit') || 20);
 		setHasLimit(getLocalItem('mlidgen-setting-has-limit') || false);
 	}, []);

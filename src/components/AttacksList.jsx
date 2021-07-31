@@ -21,11 +21,6 @@ const AttacksList = ({ attacks, deleteAll, copy }) => {
 								<ListItem key={attack.id} attack={attack} copy={copy} />
 							))}
 						</ul>
-						<ul className='list'>
-							{/* {attacks.map((attack) => (
-									<ListItem key={attack.id} attack={attack} />
-								))} */}
-						</ul>
 					</div>
 				</>
 			)}
