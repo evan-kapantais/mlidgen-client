@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mlidgen/static/css/main.2ea60b59.chunk.css",
+    "main.js": "/mlidgen/static/js/main.12ca1383.chunk.js",
+    "main.js.map": "/mlidgen/static/js/main.12ca1383.chunk.js.map",
+    "runtime-main.js": "/mlidgen/static/js/runtime-main.b58718e9.js",
+    "runtime-main.js.map": "/mlidgen/static/js/runtime-main.b58718e9.js.map",
+    "static/js/2.0e72cf15.chunk.js": "/mlidgen/static/js/2.0e72cf15.chunk.js",
+    "static/js/2.0e72cf15.chunk.js.map": "/mlidgen/static/js/2.0e72cf15.chunk.js.map",
+    "index.html": "/mlidgen/index.html",
+    "static/css/main.2ea60b59.chunk.css.map": "/mlidgen/static/css/main.2ea60b59.chunk.css.map",
+    "static/js/2.0e72cf15.chunk.js.LICENSE.txt": "/mlidgen/static/js/2.0e72cf15.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/mlidgen/static/media/text-background-01.71c7bf6c.jpeg",
+    "static/media/settings-off.f81b6a64.svg": "/mlidgen/static/media/settings-off.f81b6a64.svg",
+    "static/media/settings.645b0479.svg": "/mlidgen/static/media/settings.645b0479.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b58718e9.js",
+    "static/js/2.0e72cf15.chunk.js",
+    "static/css/main.2ea60b59.chunk.css",
+    "static/js/main.12ca1383.chunk.js"
+  ]
+}
