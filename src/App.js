@@ -9,16 +9,11 @@ import settingsIcon from './icons/settings.svg';
 import attacksService from './services/attacks';
 import baseService from './services/base';
 
-//TODO: display error when unable to fetch attacks from server
-//TODO: sync form message with server response
-//TODO: input hook
-
 function App() {
 	const [initialId, setInitialId] = useState('');
 	const [id, setId] = useState(null);
 	const [input, setInput] = useState('');
 	const [attacks, setAttacks] = useState([]);
-	const [error, setError] = useState(null);
 
 	const [paste, setPaste] = useState(false);
 	const [spacesRpl, setSpacesRpl] = useState('underscores');
